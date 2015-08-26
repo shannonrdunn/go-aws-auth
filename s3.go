@@ -44,7 +44,7 @@ func stringToSignS3(request *http.Request) string {
 	}
 
 	str += canonicalResourceS3(request)
-	fmt.println(str)
+	fmt.Println(str)
 	return str
 }
 
