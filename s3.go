@@ -7,6 +7,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
+	"fmt"
 )
 
 func signatureS3(stringToSign string, keys Credentials) string {
@@ -14,7 +15,7 @@ func signatureS3(stringToSign string, keys Credentials) string {
 	return base64.StdEncoding.EncodeToString(hashed)
 }
 
-func StringToSignS3(request *http.Request) string {
+func stringToSignS3(request *http.Request) string {
 	str := request.Method + "\n"
 
 	if request.Header.Get("Content-Md5") != "" {
@@ -43,7 +44,7 @@ func StringToSignS3(request *http.Request) string {
 	}
 
 	str += canonicalResourceS3(request)
-
+	fmt.println(str)
 	return str
 }
 
