@@ -14,7 +14,7 @@ func signatureS3(stringToSign string, keys Credentials) string {
 	return base64.StdEncoding.EncodeToString(hashed)
 }
 
-func stringToSignS3(request *http.Request) string {
+func StringToSignS3(request *http.Request) string {
 	str := request.Method + "\n"
 
 	if request.Header.Get("Content-Md5") != "" {
